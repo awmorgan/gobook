@@ -23,7 +23,7 @@ func nonempty(strings []string) []string {
 		if s != "" {
 			strings[i] = s
 			i++
-		}
+		} c
 	}
 	return strings[:i]
 }
