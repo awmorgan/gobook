@@ -6,6 +6,8 @@ func main() {
 	s := []string{"", "a", "", "b", "c", "", "", "d"}
 	fmt.Println(s)
 	fmt.Println(nonempty(s))
+	fmt.Println(s)
+
 }
 
 // nonempty returns a slice holding only the non-empty strings.
