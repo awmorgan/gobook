@@ -4,9 +4,14 @@ import "fmt"
 
 func main() {
 	s := []string{"", "a", "", "b", "c", "", "", "d"}
-	fmt.Println(s)
-	fmt.Println(nonempty(s))
-	fmt.Println(s)
+	s1 := s
+	fmt.Println("s: ", s)
+	fmt.Println("nonempty(s): ", nonempty(s))
+	fmt.Println("s: ", s)
+
+	fmt.Println("s1: ", s1)
+	s1 = nonempty2(s1)
+	fmt.Println("s1 = nonempty2(s1); s1: ", s1)
 
 }
 
@@ -21,4 +26,14 @@ func nonempty(strings []string) []string {
 		}
 	}
 	return strings[:i]
+}
+
+func nonempty2(strings []string) []string {
+	out := strings[:0]
+	for _, s := range strings {
+		if s != "" {
+			out = append(out, s)
+		}
+	}
+	return out
 }
