@@ -1,3 +1,4 @@
+package basename1
 // basename removes directory components and a .sufix.
 // e.g., a => a, a.go => a, a/b/c.go => c, a/b.c.go => b.c
 func basename(s string) string {

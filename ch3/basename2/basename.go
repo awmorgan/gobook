@@ -1,3 +1,7 @@
+package basename2
+
+import "strings"
+
 func basename(s string) string {
 	slash := strings.LastIndex(s, "/") // -1 if "/" not found
 	s = s[slash+1:]

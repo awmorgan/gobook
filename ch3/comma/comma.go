@@ -1,3 +1,4 @@
+package comma
 // comma inserts commas ina non-negative decimal integer string.
 func comma(s string) string {
 	n := len(s)
