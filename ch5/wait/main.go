@@ -9,14 +9,14 @@ import (
 )
 
 func main() {
+	log.SetPrefix("wait: ")
+	log.SetFlags(0)
 	if len(os.Args) != 2 {
-		fmt.Fprintf(os.Stderr, "usage: wait url\n")
-		os.Exit(1)
+		log.Fatalf("usage: wait url\n")
 	}
 	url := os.Args[1]
 	if err := WaitForServer(url); err != nil {
-		fmt.Fprintf(os.Stderr, "Site is down: %v\n", err)
-		os.Exit(1)
+		log.Fatalf("Site is down: %v\n", err)
 	}
 }
 
