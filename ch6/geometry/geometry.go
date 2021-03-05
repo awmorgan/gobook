@@ -30,3 +30,8 @@ func (path Path) Distance() float64 {
 	}
 	return sum
 }
+
+// PathDistance returns the distance along the path
+func PathDistance(path Path) float64 {
+	return path.Distance()
+}
