@@ -35,3 +35,9 @@ func (path Path) Distance() float64 {
 func PathDistance(path Path) float64 {
 	return path.Distance()
 }
+
+// ScaleBy scales a point by a factor
+func (p *Point) ScaleBy(factor float64) {
+	p.X *= factor
+	p.Y *= factor
+}
