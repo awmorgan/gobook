@@ -1,6 +1,8 @@
 package geometry
 
-import "math"
+import (
+	"math"
+)
 
 // Point is a set of x, y coordinates
 type Point struct{ X, Y float64 }
@@ -19,9 +21,9 @@ func (p Point) Distance(q Point) float64 {
 type Path []Point
 
 // Distance returns the distance traveled along the path.
-func (path Path)Distance() float64 {
+func (path Path) Distance() float64 {
 	sum := 0.0
-	for i:= range path {
+	for i := range path {
 		if i > 0 {
 			sum += path[i-1].Distance(path[i])
 		}
