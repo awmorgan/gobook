@@ -36,8 +36,10 @@ func (f *celsiusFlag) Set(s string) error {
 	switch unit {
 	case "C", "°C":
 		f.Celsius = Celsius(value)
+		return nil
 	case "F", "°F":
 		f.Celsius = FToC(Fahrenheit(value))
+		return nil
 	}
 	return fmt.Errorf("invalid temperature %q", s)
 }
