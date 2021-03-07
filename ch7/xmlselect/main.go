@@ -9,7 +9,16 @@ import (
 )
 
 func main() {
-	dec := xml.NewDecoder(os.Stdin)
+
+	// dec := xml.NewDecoder(os.Stdin)
+	///////////
+	// debug code
+	f, err := os.Open("out.xml") 
+	if err != nil {
+		panic(err)
+	}
+	dec := xml.NewDecoder(f)
+	//////////
 	var stack []string // stack of element names
 	for {
 		tok, err := dec.Token()
@@ -25,9 +34,19 @@ func main() {
 		case xml.EndElement:
 			stack = stack[:len(stack)-1] // pop
 		case xml.CharData:
-			if containsAll(stack, os.Args[1:]) {
+			/// 
+			// if containsAll(stack, os.Args[1:]) {
+			// 	fmt.Printf("%s: %s\n", strings.Join(stack, " "), tok)
+			// }
+			///////////
+			// debug code
+			// osargs := []string{"div", "div", "h2"}
+			// fmt.Printf("%s: %s\n", strings.Join(stack, " "), tok)
+			osargs := []string{ "html", "body", "div", "p"}
+			if containsAll(stack, osargs) {
 				fmt.Printf("%s: %s\n", strings.Join(stack, " "), tok)
 			}
+			/////////////
 		}
 	}
 }
