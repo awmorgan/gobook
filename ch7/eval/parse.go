@@ -103,7 +103,7 @@ func parseUnary(lex *lexer) Expr {
 		lex.next()
 		return unary{op, parseUnary(lex)}
 	}
-	parsePrimary(lex)
+	return parsePrimary(lex)
 }
 
 // primary = id

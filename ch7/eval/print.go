@@ -9,7 +9,7 @@ import (
 // It does not attempt to remove unnecessary parens.
 func Format(e Expr) string {
 	var buf bytes.Buffer
-	write(&b, e)
+	write(&buf, e)
 	return buf.String()
 }
 
