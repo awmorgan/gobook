@@ -10,17 +10,17 @@ import (
 
 // Shop is
 type Shop struct {
-	Verbose            bool
-	Cakes              int           // number of cakes to bake
-	BakeTime           time.Duration // time to bake one cake
-	BakeStdDev         time.Duration // standard deviation of baking time
-	BakeBuf            int           // buffer slots between baking and icing
-	NumIcers           int           // number of cooks doing icing
-	IceTime            time.Duration // time to ice one cake
-	IceStdDev          time.Duration // standard deviation of icing time
-	IceBuf             int           // buffer slots between icing and inscribing
-	InscribeTime       time.Duration // time to inscribe one cake
-	InscribeTimeStdDev time.Duration // standard deviation of inscribing time
+	Verbose        bool
+	Cakes          int           // number of cakes to bake
+	BakeTime       time.Duration // time to bake one cake
+	BakeStdDev     time.Duration // standard deviation of baking time
+	BakeBuf        int           // buffer slots between baking and icing
+	NumIcers       int           // number of cooks doing icing
+	IceTime        time.Duration // time to ice one cake
+	IceStdDev      time.Duration // standard deviation of icing time
+	IceBuf         int           // buffer slots between icing and inscribing
+	InscribeTime   time.Duration // time to inscribe one cake
+	InscribeStdDev time.Duration // standard deviation of inscribing time
 }
 
 type cake int
@@ -53,7 +53,7 @@ func (s *Shop) inscriber(iced <-chan cake) {
 		if s.Verbose {
 			fmt.Println("inscribing", c)
 		}
-		work(s.InscribeTime, s.InscribeTimeStdDev)
+		work(s.InscribeTime, s.InscribeStdDev)
 		if s.Verbose {
 			fmt.Println("finished", c)
 		}
