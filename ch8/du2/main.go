@@ -16,7 +16,7 @@ import (
 var verbose = flag.Bool("v", false, "show verbose progress messages")
 
 func printDiskUsage(nfiles, nbytes int64) {
-	fmt.Printf("%d files  %.1f GB", nfiles, float64(nbytes)/1e9)
+	fmt.Printf("%d files  %.1f GB\n", nfiles, float64(nbytes)/1e9)
 }
 
 //dirents returns the entries of directory dir.
