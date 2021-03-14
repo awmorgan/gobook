@@ -2,6 +2,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -22,7 +23,7 @@ func cancelled() bool {
 
 func main() {
 	// Determine the initial directories.
-	roots := os.Args[1:]
+	roots := flag.Args()
 	if len(roots) == 0 {
 		roots = []string{"."}
 	}
@@ -91,7 +92,15 @@ func walkDir(dir string, n *sync.WaitGroup, fileSizes chan<- int64) {
 	}
 }
 
-var sema = make(chan struct{}, 20) // concurrency-limiting counting semaphore
+func init() {
+	
+	nsems = flag.Int("n", 20, "size of counting semaphore")
+	flag.Parse()
+	fmt.Println(*nsems)
+	sema = make(chan struct{}, *nsems) // concurrency-limiting counting semaphore
+}
+var nsems *int
+var sema chan struct{}
 
 // dirents returns the entries of directory dir.
 func dirents(dir string) []os.FileInfo {
