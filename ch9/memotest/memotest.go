@@ -73,6 +73,6 @@ func Concurrent(t *testing.T, m M) {
 			}
 			fmt.Printf("%s, %s, %d bytes\n", url, time.Since(start), len(value.([]byte)))
 		}(url)
-		n.Wait()
 	}
+	n.Wait()
 }
