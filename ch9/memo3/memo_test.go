@@ -3,7 +3,7 @@ package memo_test
 import (
 	"testing"
 
-	memo "github.com/awmorgan/gobook/ch9/memo2"
+	memo "github.com/awmorgan/gobook/ch9/memo3"
 	"github.com/awmorgan/gobook/ch9/memotest"
 )
 
